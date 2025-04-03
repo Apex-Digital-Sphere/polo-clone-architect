@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, ShoppingCart, Menu, X, User, Heart } from 'lucide-react';
+import { Search, ShoppingCart, Menu, X, User } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,9 +42,6 @@ const Navbar = () => {
           </button>
           <button className="p-2 hidden md:block">
             <User size={20} />
-          </button>
-          <button className="p-2 hidden md:block">
-            <Heart size={20} />
           </button>
           <button className="p-2 relative">
             <ShoppingCart size={20} />
