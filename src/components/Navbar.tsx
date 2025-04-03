@@ -1,6 +1,14 @@
 
 import React, { useState } from 'react';
 import { Search, ShoppingCart, Menu, X, User } from 'lucide-react';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,8 +25,71 @@ const Navbar = () => {
     { name: "Sale", url: "#", highlight: true }
   ];
 
+  // Subcategories for men
+  const menCategories = [
+    { name: "Polos", url: "#" },
+    { name: "Camisas", url: "#" },
+    { name: "Pantalones", url: "#" },
+    { name: "Chaquetas", url: "#" },
+    { name: "Zapatos", url: "#" },
+    { name: "Accesorios", url: "#" },
+  ];
+
+  // Subcategories for women
+  const womenCategories = [
+    { name: "Vestidos", url: "#" },
+    { name: "Blusas", url: "#" },
+    { name: "Pantalones", url: "#" },
+    { name: "Chaquetas", url: "#" },
+    { name: "Zapatos", url: "#" },
+    { name: "Accesorios", url: "#" },
+  ];
+
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-sm">
+      {/* Category Navigation */}
+      <div className="hidden lg:block border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm text-gray-800 hover:text-polo-navy">Hombre</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid grid-cols-2 gap-4 p-4 min-w-[400px]">
+                    {menCategories.map((category, idx) => (
+                      <NavigationMenuLink
+                        key={idx}
+                        href={category.url}
+                        className="block p-2 text-sm text-gray-700 hover:text-polo-navy hover:bg-gray-50"
+                      >
+                        {category.name}
+                      </NavigationMenuLink>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+              
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-sm text-gray-800 hover:text-polo-navy">Mujer</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid grid-cols-2 gap-4 p-4 min-w-[400px]">
+                    {womenCategories.map((category, idx) => (
+                      <NavigationMenuLink
+                        key={idx}
+                        href={category.url}
+                        className="block p-2 text-sm text-gray-700 hover:text-polo-navy hover:bg-gray-50"
+                      >
+                        {category.name}
+                      </NavigationMenuLink>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+      </div>
+      
       {/* Top bar with logo and icons */}
       <div className="container mx-auto px-4 flex justify-between items-center h-16">
         {/* Mobile menu icon */}
