@@ -31,7 +31,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex items-center">
           <a href="/" className="text-polo-navy font-serif text-2xl font-bold">
-            POLO RALPH LAUREN
+            FERTIO
           </a>
         </div>
 
